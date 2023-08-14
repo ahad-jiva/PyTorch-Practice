@@ -35,3 +35,6 @@ def get_input_temp(unit):
 def get_target_unit():
     target_unit = input('What unit do you want to convert this to: ')
     return target_unit
+
+def print_temp(temp, unit):
+    print(f'That is {temp} degrees {unit}.')
