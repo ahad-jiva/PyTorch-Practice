@@ -13,4 +13,4 @@ def guessing_game(x):
         elif guess < random_number:
             print('Nope, your guess is too small')
 
-guessing_game(1000)
+guessing_game(100)
