@@ -4,8 +4,8 @@ from torch.utils.data import DataLoader
 from torchvision import datasets
 from torchvision.transforms import ToTensor, Lambda
 
-training_data = datasets.FashionMNIST(root="data", train = True, download = True, transform = ToTensor())
-test_data = datasets.FashionMNIST(root="data", train = False, download = True, transform=ToTensor())
+training_data = datasets.FashionMNIST(root="pytorch models", train = True, download = True, transform = ToTensor())
+test_data = datasets.FashionMNIST(root="pytorch models", train = False, download = True, transform=ToTensor())
 
 train_dataloader = DataLoader(training_data, batch_size = 64)
 test_dataloader = DataLoader(test_data, batch_size = 64)
@@ -72,5 +72,5 @@ for t in range(epochs):
     test_loop(test_dataloader, model, loss_function)
 print("Done!")
 
-torch.save(model.state_dict(), "data/model.pth")
-print("Saved model state to model.pth")
+torch.save(model.state_dict(), "pytorch models/vision_model.pth")
+print("Saved model state")
