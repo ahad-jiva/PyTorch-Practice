@@ -4,7 +4,7 @@ import torchvision
 import matplotlib.pyplot as plt
 from torchinfo import summary
 import numpy as np
-from letter_recognition import train_loader, test_loader
+
 
 class OneConv(nn.Module):
     def __init__(self):
@@ -22,12 +22,6 @@ net = OneConv()
 
 summary(net, input_size=(1,1,28,28))
 
-# fig,ax = plt.subplots(1,9)
-# with torch.no_grad():
-#     p = next(net.conv.parameters())
-#     for i,x, in enumerate(p):
-#         ax[i].imshow(x.detach().cpu()[0,...])
-#         ax[i].axis('off')
 
 class MultiLayerCNN(nn.Module):
     def __init__(self):
