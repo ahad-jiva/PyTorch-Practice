@@ -20,7 +20,7 @@ class OneConv(nn.Module):
     
 net = OneConv()
 
-summary(net, input_size=(1,1,28,28))
+#summary(net, input_size=(1,1,28,28))
 
 
 class MultiLayerCNN(nn.Module):
@@ -39,4 +39,27 @@ class MultiLayerCNN(nn.Module):
     
     
 net = MultiLayerCNN()
-summary(net, input_size=(1,1,28,28))
+#summary(net, input_size=(1,1,28,28))
+
+class CifarNet(nn.Module):
+    def __init__(self):
+        super(CifarNet, self).__init__()
+        self.conv1 = nn.Conv2d(3, 6, 5)
+        self.pool = nn.MaxPool2d(2)
+        self.conv2 = nn.Conv2d(6, 16, 5)
+        self.conv3 = nn.Conv2d(16, 120, 5)
+        self.flat = nn.Flatten()
+        self.fc1 = nn.Linear(120, 64)
+        self.fc2 = nn.Linear(64, 10)
+    
+    def forward(self, x):
+        x = self.pool(nn.functional.relu(self.conv1(x)))
+        x = self.pool(nn.functional.relu(self.conv2(x)))
+        x = nn.functional.relu(self.conv3)
+        x = self.flat(x)
+        x = nn.functional.relu(self.fc1(x))
+        x = self.fc2(x)
+        return x
+    
+net = CifarNet()
+
