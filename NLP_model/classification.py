@@ -1,4 +1,3 @@
-import torch
 import torchtext
 import os
 import collections
@@ -37,3 +36,8 @@ def encode(x):
 
 vec = encode(first_sentence)
 print(vec)
+
+def decode(x):
+    return [vocab.itos[i] for i in x]
+
+decode(vec)
